@@ -1,1 +1,10 @@
 /* You can add global styles to this file, and also import other style files */
+@import "~node_modules/bootstrap/dist/css/bootstrap.min";
+
+body {
+    margin: 0px;
+    padding: 0px;
+    box-sizing: border-box;
+    background: black;
+    // background: url(https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80);
+}
