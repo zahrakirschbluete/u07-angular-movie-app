@@ -1,0 +1,8 @@
+//in order to test the site locally, please change the name of this file to api.config.ts and
+//replace the line below with your personal API key which you can get here:
+//  https://developers.themoviedb.org/3/getting-started/introduction (Länkar till en externa sida.)Länkar till en externa sida.
+
+export const API_KEY: string = <<<replace me!>>>
+export const API_URL: string = 'https://api.themoviedb.org/3';
+
+
