@@ -1,0 +1,22 @@
+<div class="mx-auto w-75">
+    <h2 class="text-white">Popular movies</h2>
+    <div class="row">
+        <select [ngModel]="rating | async" (ngModelChange)="onSelectChange($event)"
+            class="form-control form-control-sm">
+            <option value="" selected>All</option>
+            <option value="G">Kids</option>
+            <option value="PG"></option>
+            <option value="PG-13">PG13</option>
+            <option value="R">N</option>
+            <option value="NC-17">NSFW</option>
+            <option value="NR">Not Rated</option>
+        </select>
+        <div *ngFor="let movie of movies$">
+            <a routerLink="/movie/{{movie.id}}">
+                <img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" class="p-3">
+            </a>
+        </div>
+
+    </div>
+</div>
+<router-outlet></router-outlet>

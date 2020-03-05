@@ -1,10 +1,37 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~node_modules/bootstrap/dist/css/bootstrap.min";
+@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
+@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
 body {
     margin: 0px;
     padding: 0px;
     box-sizing: border-box;
-    background: black;
+    background: #0b0b0b;
     // background: url(https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80);
+}
+
+nav {
+    background: #111111ea;
+
+
+}
+
+
+h1,
+h2,
+h3 {
+    font-family: 'Poppins', sans-serif;
+}
+
+p {
+    font-family: 'Montserrat', sans-serif;
+}
+
+.m-w-100 {
+    max-width: 100%;
+}
+
+.opacity-4 {
+    opacity: 0.4;
 }
