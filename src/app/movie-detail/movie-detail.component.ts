@@ -15,7 +15,11 @@ export class MovieDetailComponent implements OnInit {
     private dataService: DataService,
     private activatedRoute: ActivatedRoute
   ) {}
-
+  /**
+   * Subscribes to route changes
+   * If route params changes, get the movie id from URL
+   * and get the info about the movie from TMDB API
+   */
   ngOnInit() {
     this.activatedRoute.params
       .pipe(

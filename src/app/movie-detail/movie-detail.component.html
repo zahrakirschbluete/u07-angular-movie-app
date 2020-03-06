@@ -1,15 +1,29 @@
 <div *ngIf="movie$ as movie">
-    <div>
-        <h3 class="text-white">{{movie.title}}</h3>
-        <p>{{movie.release_date}}</p>
-        <p>{{movie.overview}}</p>
+    <div class="row lg-absolute">
+        <img class="p-0 box-shadow col-3" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+        <div class="col-9">
+            <h3 class=" text-white">{{movie.title}}</h3>
+            <div class="row p-3">
+                <p class=" text-white">{{movie.release_date}} |
+                </p>
+                <p class=" text-white"> &#x2605; {{movie.vote_average}}</p>
+            </div>
+
+            <p class="mw-50 text-white">{{movie.overview}}</p>
 
 
 
-        <img src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}" class="p-3">
+        </div>
     </div>
-    <img class="m-w-100 opacity-4" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
+    <img class="w-100 opacity-4 mh-50vw" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
+
+
+
+
+
+    <h2 class="text-white p-3">Similar movies</h2>
     <div class="row">
+
         <div class="col" *ngFor=" let similarMovie of movie.similar.results | slice:0:14">
             <a routerLink="/movie/{{similarMovie.id}}">
                 <img src="https://image.tmdb.org/t/p/w154/{{similarMovie.poster_path}} " class="p-3">
@@ -17,7 +31,7 @@
         </div>
     </div>
 
-    <h2>Cast mf</h2>
+    <h2 class="text-white p-3">Cast</h2>
     <div class="row">
         <div class="col" *ngFor=" let credits of movie.credits.cast | slice:0:6">
 

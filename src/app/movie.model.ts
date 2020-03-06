@@ -1,3 +1,5 @@
+import { NumberSymbol } from "@angular/common";
+
 export class Movie {
   adult: boolean;
   id: number;
@@ -9,4 +11,5 @@ export class Movie {
   vote_average: number;
   vote_count: number;
   profile_path: string;
+  genre_ids: any;
 }
