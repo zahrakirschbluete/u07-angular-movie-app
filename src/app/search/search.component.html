@@ -8,4 +8,18 @@
         </a>
     </div>
 
-</div>
+    <div class="row m-0">
+        <div *ngFor="let person of persons$['results']">
+
+            <a routerLink="/person/{{person.id}}">
+                <div class="mx-auto w-100">
+                    <img src="https://image.tmdb.org/t/p/w200/{{person.profile_path}}" class="p-3">
+                    <h3 class="text-white h6 text-center">{{person.name}}</h3>
+                </div>
+            </a>
+
+        </div>
+
+
+
+    </div>

@@ -40,11 +40,14 @@
     <div class="row m-0 text-center">
         <div *ngFor=" let credits of movie.credits.cast | slice:0:7">
 
-            <img *ngIf="credits.profile_path; else elseBlock"
-                src="https://image.tmdb.org/t/p/w200/{{credits.profile_path}}" class=" m-3">
+            <a routerLink="/person/{{credits.id}}">
+                <img *ngIf="credits.profile_path; else elseBlock"
+                    src="https://image.tmdb.org/t/p/w200/{{credits.profile_path}}" class=" m-3">
+            </a>
             <h3 class="text-white h6 text-center">{{credits.name}}</h3>
-            <ng-template #elseBlock><img
-                    src="https://m.media-amazon.com/images/G/01/imdb/images/nopicture/medium/name-2135195744._CB466677935_.png">
+            <ng-template #elseBlock>
+                <a routerLink="/person/{{credits.id}}"><img
+                        src="https://m.media-amazon.com/images/G/01/imdb/images/nopicture/medium/name-2135195744._CB466677935_.png"></a>
                 <h3 class="text-white h6 text-center">{{credits.name}}</h3>
             </ng-template>
         </div>

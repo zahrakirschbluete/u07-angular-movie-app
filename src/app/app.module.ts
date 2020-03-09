@@ -8,6 +8,7 @@ import { DataService } from "./data.service";
 import { MovieDetailComponent } from "./movie-detail/movie-detail.component";
 import { PageNotFoundComponent } from "./page-not-found/page-not-found.component";
 import { SearchComponent } from "./search/search.component";
+import { PersonDetailComponent } from './person-detail/person-detail.component';
 
 @NgModule({
   declarations: [
@@ -15,7 +16,8 @@ import { SearchComponent } from "./search/search.component";
     routingComponents,
     MovieDetailComponent,
     SearchComponent,
-    PageNotFoundComponent
+    PageNotFoundComponent,
+    PersonDetailComponent
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DataService],

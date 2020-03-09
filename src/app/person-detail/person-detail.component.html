@@ -1,0 +1,12 @@
+<p>person-detail works!</p>
+<div *ngIf="person$ as person">
+    <img class=" mh-50vw" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
+    <h2>{{person.name}}</h2>
+    {{person.known_for_department}}
+    {{person.gender}}
+    {{person.birthdate}}
+    {{person.biography}}
+    <div *ngFor=" let movieCredits of person.movie_credits.crew">
+        {{movieCredits.id}}
+    </div>
+</div>
