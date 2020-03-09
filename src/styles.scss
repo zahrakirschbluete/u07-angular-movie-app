@@ -3,6 +3,19 @@
 @import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
 @import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
 
+$primary-color: #E50914;
+
+.btn-outline-danger {
+    color: $primary-color;
+    border-color: $primary-color;
+
+    &:hover {
+        color: white;
+        background-color: $primary-color;
+        border-color: $primary-color;
+    }
+}
+
 body {
     margin: 0px;
     padding: 0px;
@@ -13,10 +26,16 @@ body {
 
 .menu {
     background: #111111ea;
-
-
+    box-shadow: -2px -7px 47px 9px rgba($primary-color, 0.3);
 }
 
+.scale {
+    transition: all .2s ease-in-out;
+}
+
+.scale:hover {
+    transform: scale(1.1);
+}
 
 h1,
 h2,
@@ -34,9 +53,7 @@ p {
 
 
 
-.opacity-4 {
-    opacity: 0.4;
-}
+
 
 
 

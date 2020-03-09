@@ -9,5 +9,5 @@ export class Movie {
   vote_average: number;
   vote_count: number;
   profile_path: string;
-  genre_ids: any;
+  genres: any;
 }

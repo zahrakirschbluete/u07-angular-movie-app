@@ -1,19 +1,35 @@
 <div *ngIf="movie$ as movie">
     <div>
-        <img class="w-100 opacity-4 mh-50vw" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
+        <img class="w-100 opacity-4 mh-50vw p-3 p-lg-0"
+            src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
         <div class="row lg-absolute">
             <img id="poster" class="p-0 box-shadow col" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
 
-            <div class="col">
+            <div class="col  m-3 m-lg-0">
+
                 <h3 class=" text-white">{{movie.title}}</h3>
-                <div class="row p-3">
-                    <p class=" text-white">{{movie.release_date}} |
+                <div class="row  m-0">
+                    <div class="text-white " *ngFor="let genre of movie.genres">
+
+                        <p>
+                            <i>{{genre.name }} &nbsp;</i>
+                        </p>
+
+
+                    </div>
+                </div>
+                <div class="row  m-0 ">
+
+
+                    <p class=" text-white"><i>{{movie.release_date}} |</i>
                     </p>
-                    <p class=" text-white"> &#x2605; {{movie.vote_average}}</p>
+                    <p class=" text-white"><i>&nbsp; &#x2605; {{movie.vote_average}}</i></p>
+
 
                 </div>
 
                 <p class="mw-50 text-white">{{movie.overview}}</p>
+
 
 
 
@@ -32,12 +48,12 @@
         <div *ngFor=" let similarMovie of movie.similar.results | slice:0:18">
             <a routerLink="/movie/{{similarMovie.id}}">
                 <img *ngIf="similarMovie.poster_path; else noPhoto"
-                    src="https://image.tmdb.org/t/p/w154/{{similarMovie.poster_path}}" class=" p-3">
+                    src="https://image.tmdb.org/t/p/w154/{{similarMovie.poster_path}}" class=" scale p-3">
             </a>
 
             <ng-template #noPhoto>
                 <a routerLink="/movie/{{similarMovie.id}}">
-                    <img style="max-height: 250px; width: 200px;" src="../../assets/anonmovie.png">
+                    <img class="scale p-3" style="max-height: 250px; width: 200px;" src="../../assets/anonmovie.png">
                 </a>
             </ng-template>
         </div>

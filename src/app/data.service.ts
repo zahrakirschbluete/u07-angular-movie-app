@@ -40,7 +40,7 @@ export class DataService {
       params: {
         api_key: API_KEY,
         language: "en-US",
-        append_to_response: "movie_credits"
+        append_to_response: "movie_credits,genre"
       }
     });
   }
