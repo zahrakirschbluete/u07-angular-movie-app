@@ -11,7 +11,7 @@ body {
     // background: url(https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80);
 }
 
-nav {
+.menu {
     background: #111111ea;
 
 
@@ -32,6 +32,25 @@ p {
     max-width: 100%;
 }
 
+
+
 .opacity-4 {
     opacity: 0.4;
+}
+
+
+
+@media (max-width: 800px) {
+    .w-sm-75px {
+        max-width: 150px;
+        height: auto;
+    }
+}
+
+
+@media (max-width: 500px) {
+    .w-sm-75px {
+        max-width: 75px;
+        height: auto;
+    }
 }

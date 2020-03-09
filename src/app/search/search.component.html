@@ -1,23 +1,43 @@
-<h2>hello</h2>
-<div class="row m-0">
-    <div *ngFor="let movie of movies$['results']">
-        <a routerLink="/movie/{{movie.id}}">
-            <div class="mx-auto w-100">
-                <img src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}" class="p-3">
-            </div>
-        </a>
-    </div>
+<nav>
+    <ul class="list-unstyled row">
+        <li class="col-6 text-right">Movies</li>
+        <li class="col-6">People</li>
+    </ul>
+</nav>
+<div class="container-lg">
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 m-0 ">
+        <div *ngFor="let movie of movies$['results']">
+            <a routerLink="/movie/{{movie.id}}">
+                <div class="col p-3 ">
+                    <img class="w-sm-75px" *ngIf="movie.poster_path; else elseBlock"
+                        src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}">
 
-    <div class="row m-0">
-        <div *ngFor="let person of persons$['results']">
+                    <ng-template #elseBlock>
+                        <img class="w-sm-75px" src="../../assets/anonmovie.png">
 
-            <a routerLink="/person/{{person.id}}">
-                <div class="mx-auto w-100">
-                    <img src="https://image.tmdb.org/t/p/w200/{{person.profile_path}}" class="p-3">
-                    <h3 class="text-white h6 text-center">{{person.name}}</h3>
+                    </ng-template>
                 </div>
             </a>
+        </div>
+    </div>
 
+    <div class="container-lg">
+        <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 m-0 ">
+            <div *ngFor="let person of persons$['results']">
+
+                <a routerLink="/person/{{person.id}}">
+                    <div class="col p-3 ">
+                        <img class="w-sm-75px" *ngIf="person.profile_path; else elseBlock"
+                            src="https://image.tmdb.org/t/p/w200/{{person.profile_path}}" class="p-3">
+                        <h3 class="text-white h6 text-center">{{person.name}}</h3>
+                        <ng-template #elseBlock>
+                            <img class="w-sm-75px" src="../../assets/anon.png">
+
+                        </ng-template>
+                    </div>
+                </a>
+
+            </div>
         </div>
 
 

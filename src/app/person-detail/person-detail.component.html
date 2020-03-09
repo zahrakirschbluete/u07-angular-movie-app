@@ -1,12 +1,38 @@
-<p>person-detail works!</p>
-<div *ngIf="person$ as person">
-    <img class=" mh-50vw" src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
-    <h2>{{person.name}}</h2>
-    {{person.known_for_department}}
-    {{person.gender}}
-    {{person.birthdate}}
-    {{person.biography}}
-    <div *ngFor=" let movieCredits of person.movie_credits.crew">
-        {{movieCredits.id}}
+<div class="container" *ngIf="person$ as person">
+
+    <div class="row">
+        <div class=" col-md-6">
+            <img src="https://image.tmdb.org/t/p/w300/{{person.profile_path}}">
+
+            <h2 class="text-white">{{person.name}}</h2>
+        </div>
+        <div class=" col-md-6 ">
+            <h4 class="text-white">Known for:</h4>
+            <p class="text-white">
+                {{person.known_for_department}}
+            </p>
+            <h4 class="text-white">Gender:</h4>
+            <ng-container>
+
+                <p class="text-white" *ngIf="person.gender > 1; else templateName">Male</p>
+
+                <ng-template #templateName>
+                    <p class="text-white">
+                        Female
+                    </p>
+                </ng-template>
+            </ng-container>
+            <h4 class="text-white">Biography:</h4>
+            <p *ngIf="person.biography else noBio" class="text-white">
+                {{person.biography}}
+            </p>
+            <ng-template #noBio>
+                <p class="text-white">Unfortunately, there is no currently available information regarding this person.
+                </p>
+            </ng-template>
+        </div>
     </div>
+    <!-- <div *ngFor=" let movieCredits of person.movie_credits.crew">
+        {{movieCredits.id}}
+    </div> -->
 </div>

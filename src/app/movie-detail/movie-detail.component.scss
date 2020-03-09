@@ -1,12 +1,21 @@
 .lg-absolute {
     position: absolute;
-    top: 25%;
-    left: 10%;
+    top: 20vh;
+    left: 10vw;
 
 }
 
+#poster {
+    max-width: 300px;
+
+}
+
+.opacity-4 {
+    opacity: 0.4;
+}
+
 .mw-50 {
-    max-width: 50%;
+    max-width: 45vw;
 }
 
 .mh-50vw {
@@ -17,9 +26,25 @@
     box-shadow: -4px 5px 16px 1px black;
 }
 
-@media (max-width: 377px) {
+@media (max-width: 1039px) {
+    .lg-absolute {
+
+        top: 10vh;
+    }
+
+    #poster {
+        max-height: 400px;
+    }
+}
+
+@media (max-width: 869px) {
     .lg-absolute {
         position: initial;
+
+    }
+
+    .opacity-4 {
+        opacity: 1;
     }
 
     #poster {

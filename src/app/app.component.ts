@@ -32,6 +32,7 @@ export class AppComponent implements OnInit {
     return this.dataService.getSearchResults(this.query).subscribe(data => {
       this.router.navigateByUrl(`search/${this.query}`);
       console.log(data);
+      this.query = "";
     });
   }
 }
