@@ -12,8 +12,12 @@
         <option value="NC-17">NC-17 (NSFW)</option>
         <option value="NR">Unrated</option>
     </select>
+</div>
 
-    <div class="row">
+<div class="mx-auto w-75">
+
+
+    <div class="row m-0">
         <div *ngFor="let movie of movies$">
             <a routerLink="/movie/{{movie.id}}">
                 <div class="mx-auto w-100">

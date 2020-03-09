@@ -1,12 +1,14 @@
 <div *ngIf="movie$ as movie">
+    <img class="w-100 opacity-4 mh-50vw" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
     <div class="row lg-absolute">
-        <img class="p-0 box-shadow col-3" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
-        <div class="col-9">
+        <img id="poster" class="p-0 box-shadow col-3" src="https://image.tmdb.org/t/p/w300/{{movie.poster_path}}">
+        <div class="col-9 col-12-xs">
             <h3 class=" text-white">{{movie.title}}</h3>
             <div class="row p-3">
                 <p class=" text-white">{{movie.release_date}} |
                 </p>
                 <p class=" text-white"> &#x2605; {{movie.vote_average}}</p>
+
             </div>
 
             <p class="mw-50 text-white">{{movie.overview}}</p>
@@ -15,31 +17,38 @@
 
         </div>
     </div>
-    <img class="w-100 opacity-4 mh-50vw" src="https://image.tmdb.org/t/p/original/{{movie.backdrop_path}}">
+
 
 
 
 
 
     <h2 class="text-white p-3">Similar movies</h2>
-    <div class="row">
+    <div class="row m-0">
 
-        <div class="col" *ngFor=" let similarMovie of movie.similar.results | slice:0:14">
+        <div *ngFor=" let similarMovie of movie.similar.results | slice:0:18">
             <a routerLink="/movie/{{similarMovie.id}}">
                 <img src="https://image.tmdb.org/t/p/w154/{{similarMovie.poster_path}} " class="p-3">
             </a>
+
+
         </div>
     </div>
 
+
     <h2 class="text-white p-3">Cast</h2>
-    <div class="row">
-        <div class="col" *ngFor=" let credits of movie.credits.cast | slice:0:6">
+    <div class="row m-0 text-center">
+        <div *ngFor=" let credits of movie.credits.cast | slice:0:7">
 
             <img *ngIf="credits.profile_path; else elseBlock"
-                src="https://image.tmdb.org/t/p/w200/{{credits.profile_path}}" class="p-3">
+                src="https://image.tmdb.org/t/p/w200/{{credits.profile_path}}" class=" m-3">
+            <h3 class="text-white h6 text-center">{{credits.name}}</h3>
             <ng-template #elseBlock><img
                     src="https://m.media-amazon.com/images/G/01/imdb/images/nopicture/medium/name-2135195744._CB466677935_.png">
+                <h3 class="text-white h6 text-center">{{credits.name}}</h3>
             </ng-template>
         </div>
     </div>
+
+
 </div>

@@ -2,7 +2,6 @@
     position: absolute;
     top: 25%;
     left: 10%;
-    z-index: 2;
 
 }
 
@@ -16,4 +15,18 @@
 
 .box-shadow {
     box-shadow: -4px 5px 16px 1px black;
+}
+
+@media (max-width: 377px) {
+    .lg-absolute {
+        position: initial;
+    }
+
+    #poster {
+        display: none;
+    }
+
+    .mw-50 {
+        max-width: 100%;
+    }
 }

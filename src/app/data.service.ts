@@ -9,6 +9,7 @@ import { API_KEY, API_URL } from "./api.config";
 export class DataService {
   discoverMoviesURL = API_URL + "/discover/movie";
   movieDetailURL = API_URL + "/movie";
+  searchResultsURL = API_URL + "/search/multi";
 
   constructor(private _http: HttpClient) {}
   getMovies(rating?: string) {
@@ -29,4 +30,19 @@ export class DataService {
       }
     });
   }
+
+  getSearchResults(query: any) {
+    return this._http.get<Movie[]>(`${this.searchResultsURL}`, {
+      params: {
+        api_key: API_KEY,
+        language: "en-US",
+        query: `${query}`,
+        adult: "true"
+      }
+    });
+  }
+
+  //  getSearchResults() {
+  //   return this._http.get<Movie[]>(this.searchResultsURL + API_KEY + "&language=en-US&query=indiana%20jones&page=1&include_adult=true");
+  // }
 }

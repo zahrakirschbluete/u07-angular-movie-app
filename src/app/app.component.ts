@@ -1,6 +1,7 @@
-import { Component, OnInit, ViewChild, ElementRef } from "@angular/core";
+import { Component, OnInit, ViewChild, ElementRef, Input } from "@angular/core";
 import { Movie } from "./movie.model";
 import { DataService } from "./data.service";
+import { Router } from "@angular/router";
 
 @Component({
   selector: "app-root",
@@ -10,8 +11,10 @@ import { DataService } from "./data.service";
 export class AppComponent implements OnInit {
   @ViewChild("dropdown") dropdown: ElementRef;
   @ViewChild("dropdownMenu") dropdownMenu: ElementRef;
+  // @ViewChild("searchForm") searchForm: ;
   movies$: Movie[];
-  constructor(private dataService: DataService) {}
+  query: string;
+  constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
     return this.dataService.getMovies().subscribe(data => {
@@ -23,5 +26,12 @@ export class AppComponent implements OnInit {
   toggleDropDown() {
     this.dropdown.nativeElement.classList.toggle("show");
     this.dropdownMenu.nativeElement.classList.toggle("show");
+  }
+
+  search() {
+    return this.dataService.getSearchResults(this.query).subscribe(data => {
+      this.router.navigateByUrl(`search/${this.query}`);
+      console.log(data);
+    });
   }
 }

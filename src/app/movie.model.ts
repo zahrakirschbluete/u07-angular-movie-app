@@ -1,5 +1,3 @@
-import { NumberSymbol } from "@angular/common";
-
 export class Movie {
   adult: boolean;
   id: number;
