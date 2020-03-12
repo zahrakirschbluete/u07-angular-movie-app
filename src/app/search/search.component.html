@@ -9,11 +9,11 @@
         <div *ngFor="let movie of movies$['results']">
             <a routerLink="/movie/{{movie.id}}">
                 <div class="col p-3 ">
-                    <img class="w-sm-75px" *ngIf="movie.poster_path; else elseBlock"
+                    <img class="poster-path" *ngIf="movie.poster_path; else elseBlock"
                         src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}">
 
                     <ng-template #elseBlock>
-                        <img class="w-sm-75px" src="../../assets/anonmovie.png">
+                        <img class="poster-path" src="../../assets/anonmovie.png">
 
                     </ng-template>
                 </div>
@@ -27,11 +27,11 @@
 
                 <a routerLink="/person/{{person.id}}">
                     <div class="col p-3 ">
-                        <img class="w-sm-75px" *ngIf="person.profile_path; else elseBlock"
-                            src="https://image.tmdb.org/t/p/w200/{{person.profile_path}}" class="p-3">
+                        <img class="poster-path" *ngIf="person.profile_path; else elseBlock"
+                            src="https://image.tmdb.org/t/p/w200/{{person.profile_path}}">
                         <h3 class="text-white h6 text-center">{{person.name}}</h3>
                         <ng-template #elseBlock>
-                            <img class="w-sm-75px" src="../../assets/anon.png">
+                            <img class="poster-path" src="../../assets/anon.png">
 
                         </ng-template>
                     </div>

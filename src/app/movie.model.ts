@@ -10,4 +10,5 @@ export class Movie {
   vote_count: number;
   profile_path: string;
   genres: any;
+  favourite?: boolean;
 }

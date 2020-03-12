@@ -3,6 +3,7 @@ import { HttpClient } from "@angular/common/http";
 import { Movie } from "./movie.model";
 import { Person } from "./person.model";
 import { API_KEY, API_URL } from "./api.config";
+import { Favorites } from "./favourites-list.model";
 
 @Injectable({
   providedIn: "root"
@@ -10,6 +11,8 @@ import { API_KEY, API_URL } from "./api.config";
 export class DataService {
   //endpoints
   discoverMoviesURL = API_URL + "/discover/movie";
+  topRatedMoviesURL = API_URL + "/movie/top_rated";
+  upcomingMoviesURL = API_URL + "/movie/upcoming";
   movieDetailURL = API_URL + "/movie";
   personDetailURL = API_URL + "/person";
   searchMovieResultsURL = API_URL + "/search/movie";
@@ -18,6 +21,26 @@ export class DataService {
   constructor(private _http: HttpClient) {}
   getMovies(rating?: string) {
     return this._http.get<Movie[]>(this.discoverMoviesURL, {
+      params: {
+        api_key: API_KEY,
+        certification_country: "US",
+        certification: rating
+      }
+    });
+  }
+
+  getTopRatedMovies(rating?: string) {
+    return this._http.get<Movie[]>(this.topRatedMoviesURL, {
+      params: {
+        api_key: API_KEY,
+        certification_country: "US",
+        certification: rating
+      }
+    });
+  }
+
+  getUpcomingMovies(rating?: string) {
+    return this._http.get<Movie[]>(this.upcomingMoviesURL, {
       params: {
         api_key: API_KEY,
         certification_country: "US",
@@ -64,6 +87,10 @@ export class DataService {
         query: `${query}`
       }
     });
+  }
+
+  addMovie() {
+    // return this._http.post<Movie[]>(`${this.movieDetailURL}`);
   }
   //  getSearchResults() {
   //   return this._http.get<Movie[]>(this.searchResultsURL + API_KEY + "&language=en-US&query=indiana%20jones&page=1&include_adult=true");

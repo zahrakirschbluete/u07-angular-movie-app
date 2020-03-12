@@ -11,9 +11,10 @@ import { Router } from "@angular/router";
 export class AppComponent implements OnInit {
   @ViewChild("dropdown") dropdown: ElementRef;
   @ViewChild("dropdownMenu") dropdownMenu: ElementRef;
-  // @ViewChild("searchForm") searchForm: ;
+
   movies$: Movie[];
   query: string;
+  favorites = [];
   constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
@@ -22,7 +23,11 @@ export class AppComponent implements OnInit {
       console.log(data);
     });
   }
-
+  // toggleFavorites() {
+  //   return this.dataService.addMovie().subscribe(data => {
+  //     this.favorites = data;
+  //   });
+  // }
   toggleDropDown() {
     this.dropdown.nativeElement.classList.toggle("show");
     this.dropdownMenu.nativeElement.classList.toggle("show");

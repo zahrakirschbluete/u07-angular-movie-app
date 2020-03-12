@@ -5,11 +5,11 @@ import { map, switchMap, tap } from "rxjs/operators";
 import { Subject, BehaviorSubject } from "rxjs";
 
 @Component({
-  selector: "app-popular-movies-list",
-  templateUrl: "./popular-movies-list.component.html",
-  styleUrls: ["./popular-movies-list.component.scss"]
+  selector: "app-top-rated-movies-list",
+  templateUrl: "./top-rated-movies-list.component.html",
+  styleUrls: ["./top-rated-movies-list.component.scss"]
 })
-export class PopularMoviesListComponent implements OnInit {
+export class TopRatedMoviesListComponent implements OnInit {
   movies$: Movie[];
   //an observeable which you can subscribe to
   rating = new BehaviorSubject<string>("");
@@ -17,7 +17,7 @@ export class PopularMoviesListComponent implements OnInit {
 
   ngOnInit() {
     this.rating
-      .pipe(switchMap(rating => this.dataService.getMovies(rating)))
+      .pipe(switchMap(rating => this.dataService.getTopRatedMovies(rating)))
       .subscribe(data => {
         this.movies$ = data["results"];
       });
