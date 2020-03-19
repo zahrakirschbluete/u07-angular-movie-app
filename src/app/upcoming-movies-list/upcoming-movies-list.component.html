@@ -30,9 +30,10 @@
 
                 <img *ngIf="!movie.favourite" (click)="toggleFavoriteBtn(movie.id)" #addFavorite
                     class=" addFavorite p-2" style="position: absolute; z-index: 2;"
-                    src="../../assets/addFavorites_statusClicked=false.png">
+                    src="../../assets/addFavorites_statusClicked=false.png" alt="{{movie.title}}">
                 <img *ngIf="movie.favourite" (click)="toggleFavoriteBtn(movie.id)" #addFavorite class=" addFavorite p-2"
-                    style="position: absolute; z-index: 2;" src="../../assets/addFavorites_statusClicked=true.png">
+                    style="position: absolute; z-index: 2;" src="../../assets/addFavorites_statusClicked=true.png"
+                    alt="{{movie.title}}">
 
                 <a routerLink="/movie/{{movie.id}}"><img class="poster-path scale"
                         src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}"></a>

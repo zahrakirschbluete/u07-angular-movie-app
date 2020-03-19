@@ -35,9 +35,7 @@ export class UpcomingMoviesListComponent implements OnInit {
   }
 
   toggleFavoriteBtn(id: number) {
-    console.log("id", id);
     let clickedMovie = this.movies$.find(movie => movie.id === id);
-    console.log("clickedMovie", clickedMovie);
     if (clickedMovie.favourite) {
       // unfavourite
       this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
@@ -45,38 +43,6 @@ export class UpcomingMoviesListComponent implements OnInit {
       this.favoritesArray.push(id);
     }
     clickedMovie.favourite = !clickedMovie.favourite;
-    console.log("favourites", this.favoritesArray);
     localStorage.setItem("favorites", JSON.stringify(this.favoritesArray));
-    //test 1
-    // this.movies$.forEach(this.movies$["id"], () => {
-    //   this.addFavorite.nativeElement.src =
-    //     "../../assets/addFavorites_statusClicked=true.png";
-    // });
-    //test 2
-    // this.id = +this.route.snapshot.paramMap.get("id");
-    // this.movieSub$ = this.dataService.getMovies(this.id).subscribe(info => {
-    //   this.movies$ = info;
-    //   console.log(this.movies$);
-    // });
-
-    // if (this.statusAdded == false) {
-    //   // this.statusAdded = true;
-    //   let clickedMovie = this.movies$.find(movie => movie.id === id);
-    //   clickedMovie.favourite = !clickedMovie.favourite;
-    //   // this.addFavorite.nativeElement.src =
-    //   //   "../../assets/addFavorites_statusClicked=true.png";
-    //   console.log("clickedMovie", clickedMovie);
-    //   // console.log("statusAdded", this.statusAdded);
-
-    //   this.favoritesArray.push(id);
-    //   console.log("favourites", this.favoritesArray);
-    // } else {
-    //   this.statusAdded = false;
-    //   console.log("status", this.statusAdded);
-    //   this.favoritesArray.push("false");
-    //   console.log(this.favoritesArray);
-    //   this.addFavorite.nativeElement.src =
-    //     "../../assets/addFavorites_statusClicked=false.png";
-    // }
   }
 }

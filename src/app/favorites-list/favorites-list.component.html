@@ -1,1 +1,16 @@
-<p>favorites-list works!</p>
+<div class="text-center mt-4">
+    <h2 class="text-white">My Favourites</h2>
+</div>
+
+<div class="container-lg ">
+    <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 m-0 ">
+        <div *ngFor="let favoriteMovie of results">
+            <a routerLink="/movie/{{favoriteMovie.id}}">
+                <div class="col p-3 ">
+                    <img class="poster-path scale" src="https://image.tmdb.org/t/p/w200/{{favoriteMovie.poster_path}}"
+                        alt="{{favoriteMovie.title}}">
+                </div>
+            </a>
+        </div>
+    </div>
+</div>

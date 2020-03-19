@@ -25,7 +25,8 @@
         <div *ngFor="let movie of movies$">
             <a routerLink="/movie/{{movie.id}}">
                 <div class="col p-3 ">
-                    <img class="poster-path scale" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}">
+                    <img class="poster-path scale" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}"
+                        alt="{{movie.title}}">
                 </div>
             </a>
         </div>
