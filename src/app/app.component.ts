@@ -14,6 +14,8 @@ export class AppComponent implements OnInit {
 
   movies$: Movie[];
   query: string;
+  statusAdded: boolean = false;
+  favoritesArray = [];
   favorites = [];
   constructor(private dataService: DataService, private router: Router) {}
 
@@ -39,5 +41,17 @@ export class AppComponent implements OnInit {
       console.log(data);
       this.query = "";
     });
+  }
+
+  toggleFavoriteBtn(id: number) {
+    let clickedMovie = this.movies$.find(movie => movie.id === id);
+    if (clickedMovie.favourite) {
+      // unfavourite
+      this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
+    } else {
+      this.favoritesArray.push(id);
+    }
+    clickedMovie.favourite = !clickedMovie.favourite;
+    localStorage.setItem("favorites", JSON.stringify(this.favoritesArray));
   }
 }

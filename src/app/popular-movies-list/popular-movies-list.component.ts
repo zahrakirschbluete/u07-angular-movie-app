@@ -11,6 +11,9 @@ import { Subject, BehaviorSubject } from "rxjs";
 })
 export class PopularMoviesListComponent implements OnInit {
   movies$: Movie[];
+  id = new BehaviorSubject<string>("");
+  statusAdded: boolean = false;
+  favoritesArray = [];
   //an observeable which you can subscribe to
   rating = new BehaviorSubject<string>("");
   constructor(private dataService: DataService) {}
@@ -25,5 +28,17 @@ export class PopularMoviesListComponent implements OnInit {
 
   onSelectChange(rating: string) {
     this.rating.next(rating);
+  }
+
+  toggleFavoriteBtn(id: number) {
+    let clickedMovie = this.movies$.find(movie => movie.id === id);
+    if (clickedMovie.favourite) {
+      // unfavourite
+      this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
+    } else {
+      this.favoritesArray.push(id);
+    }
+    clickedMovie.favourite = !clickedMovie.favourite;
+    localStorage.setItem("favorites", JSON.stringify(this.favoritesArray));
   }
 }

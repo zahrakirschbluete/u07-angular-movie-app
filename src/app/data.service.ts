@@ -9,6 +9,9 @@ import { Favorites } from "./favourites-list.model";
   providedIn: "root"
 })
 export class DataService {
+  movies$: Movie[];
+  statusAdded: boolean = false;
+  favoritesArray = [];
   //endpoints
   discoverMoviesURL = API_URL + "/discover/movie";
   topRatedMoviesURL = API_URL + "/movie/top_rated";
@@ -89,10 +92,15 @@ export class DataService {
     });
   }
 
-  addMovie() {
-    // return this._http.post<Movie[]>(`${this.movieDetailURL}`);
+  toggleFavoriteBtn(id: number) {
+    let clickedMovie = this.movies$.find(movie => movie.id === id);
+    if (clickedMovie.favourite) {
+      // unfavourite
+      this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
+    } else {
+      this.favoritesArray.push(id);
+    }
+    clickedMovie.favourite = !clickedMovie.favourite;
+    localStorage.setItem("favorites", JSON.stringify(this.favoritesArray));
   }
-  //  getSearchResults() {
-  //   return this._http.get<Movie[]>(this.searchResultsURL + API_KEY + "&language=en-US&query=indiana%20jones&page=1&include_adult=true");
-  // }
 }
