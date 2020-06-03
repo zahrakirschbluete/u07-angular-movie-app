@@ -6,7 +6,7 @@ import { Router } from "@angular/router";
 @Component({
   selector: "app-root",
   templateUrl: "./app.component.html",
-  styleUrls: ["./app.component.scss"]
+  styleUrls: ["./app.component.scss"],
 })
 export class AppComponent implements OnInit {
   @ViewChild("dropdown") dropdown: ElementRef;
@@ -20,23 +20,19 @@ export class AppComponent implements OnInit {
   constructor(private dataService: DataService, private router: Router) {}
 
   ngOnInit() {
-    return this.dataService.getMovies().subscribe(data => {
+    return this.dataService.getMovies().subscribe((data) => {
       this.movies$ = data["results"];
       console.log(data);
     });
   }
-  // toggleFavorites() {
-  //   return this.dataService.addMovie().subscribe(data => {
-  //     this.favorites = data;
-  //   });
-  // }
+
   toggleDropDown() {
     this.dropdown.nativeElement.classList.toggle("show");
     this.dropdownMenu.nativeElement.classList.toggle("show");
   }
 
   search() {
-    return this.dataService.getSearchResults(this.query).subscribe(data => {
+    return this.dataService.getSearchResults(this.query).subscribe((data) => {
       this.router.navigateByUrl(`search/${this.query}`);
       console.log(data);
       this.query = "";
@@ -44,10 +40,10 @@ export class AppComponent implements OnInit {
   }
 
   toggleFavoriteBtn(id: number) {
-    let clickedMovie = this.movies$.find(movie => movie.id === id);
+    let clickedMovie = this.movies$.find((movie) => movie.id === id);
     if (clickedMovie.favourite) {
       // unfavourite
-      this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
+      this.favoritesArray = this.favoritesArray.filter((fave) => fave !== id);
     } else {
       this.favoritesArray.push(id);
     }

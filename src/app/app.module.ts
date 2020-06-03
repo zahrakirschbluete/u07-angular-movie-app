@@ -27,10 +27,10 @@ import { FavoritesListComponent } from "./favorites-list/favorites-list.componen
     UpcomingMoviesListComponent,
     TopRatedMoviesListComponent,
     FooterComponent,
-    FavoritesListComponent
+    FavoritesListComponent,
   ],
   imports: [BrowserModule, AppRoutingModule, HttpClientModule, FormsModule],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 export class AppModule {}

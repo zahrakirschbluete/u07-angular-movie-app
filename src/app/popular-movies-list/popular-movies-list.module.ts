@@ -17,13 +17,13 @@ import { MovieDetailModule } from "../movie-detail/movie-detail.module";
     AppRoutingModule,
     HttpClientModule,
     CommonModule,
-    MovieDetailModule
+    MovieDetailModule,
   ],
   providers: [DataService],
-  bootstrap: [AppComponent]
+  bootstrap: [AppComponent],
 })
 @NgModule({
   declarations: [],
-  imports: [CommonModule]
+  imports: [CommonModule],
 })
 export class PopularMoviesListModule {}

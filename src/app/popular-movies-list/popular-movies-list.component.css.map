@@ -1,0 +1,9 @@
+{
+    "version": 3,
+    "mappings": "AAAA,AAAA,SAAS,CAAC;EACN,SAAS,EAAE,KAAK;CACnB",
+    "sources": [
+        "popular-movies-list.component.scss"
+    ],
+    "names": [],
+    "file": "popular-movies-list.component.css"
+}

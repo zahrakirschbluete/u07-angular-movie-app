@@ -1,99 +1,91 @@
 /* You can add global styles to this file, and also import other style files */
 @import "~node_modules/bootstrap/dist/css/bootstrap.min";
-@import url('https://fonts.googleapis.com/css?family=Poppins&display=swap');
-@import url('https://fonts.googleapis.com/css?family=Montserrat&display=swap');
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
 
-$primary-color: #E50914;
+$primary-color: #e50914;
 
 .btn-danger {
+  background-color: $primary-color;
+  border-color: $primary-color;
+  transition: all 0.2s ease-in-out;
+
+  &:hover {
     background-color: $primary-color;
-    border-color: $primary-color;
-    transition: all .2s ease-in-out;
-
-
-    &:hover {
-        background-color: $primary-color;
-        transform: scale(1.1);
-    }
+    transform: scale(1.1);
+  }
 }
 
 .btn-outline-danger {
-    color: $primary-color;
-    border-color: $primary-color;
+  color: $primary-color;
+  border-color: $primary-color;
 
-    &:hover {
-        color: white;
-        background-color: $primary-color;
-        border-color: $primary-color;
-    }
+  &:hover {
+    color: white;
+    background-color: $primary-color;
+    border-color: $primary-color;
+  }
 }
 
 body {
-    margin: 0px;
-    padding: 0px;
-    box-sizing: border-box;
-    background: #0b0b0b;
-    min-height: 100vh;
-    display: flex;
-    flex-direction: column;
-    // background: url(https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80);
+  margin: 0px;
+  padding: 0px;
+  box-sizing: border-box;
+  background: #0b0b0b;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  // background: url(https://images.unsplash.com/photo-1524985069026-dd778a71c7b4?ixlib=rb-1.2.1&auto=format&fit=crop&w=2102&q=80);
 }
 
 .menu {
-    background: #111111ea;
-    box-shadow: -2px -7px 47px 9px rgba($primary-color, 0.3);
+  background: #111111ea;
+  box-shadow: -2px -7px 47px 9px rgba($primary-color, 0.3);
 }
 
 .scale {
-    transition: all .2s ease-in-out;
+  transition: all 0.2s ease-in-out;
 
-    &:hover {
-        transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
 }
-
 
 h1,
 h2,
 h3 {
-    font-family: 'Poppins', sans-serif;
+  font-family: "Poppins", sans-serif;
 }
 
 p {
-    font-family: 'Montserrat', sans-serif;
+  font-family: "Montserrat", sans-serif;
 }
 
 .m-w-100 {
-    max-width: 100%;
+  max-width: 100%;
 }
 
-
-
 .w-sm-75px {
-    max-width: 75px;
-    height: auto;
+  max-width: 75px;
+  height: auto;
 }
 
 .addFavorite {
-
-
-    &:hover {
-        transform: scale(1.1);
-    }
+  &:hover {
+    transform: scale(1.1);
+  }
 }
 
 @media (max-width: 800px) {
-    .poster-path {
-        max-width: 150px;
-        height: auto;
-    }
+  .poster-path {
+    max-width: 150px;
+    height: auto;
+  }
 }
 
-
 @media (max-width: 500px) {
-    .poster-path {
-        max-width: 75px;
-        height: auto;
-    }
-
+  .poster-path {
+    max-width: 75px;
+    height: auto;
+  }
 }

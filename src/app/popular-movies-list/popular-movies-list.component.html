@@ -22,7 +22,7 @@
 
 
     <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 m-0 ">
-        <div *ngFor="let movie of movies$">
+        <div *ngFor="let movie of dataService.movies$">
             <div class="col p-3 ">
                 <img *ngIf="!movie.favourite" (click)="toggleFavoriteBtn(movie.id)" #addFavorite
                     class=" addFavorite p-2" style="position: absolute; z-index: 2;"
@@ -36,7 +36,6 @@
             </div>
 
         </div>
-
     </div>
 </div>
 <router-outlet></router-outlet>

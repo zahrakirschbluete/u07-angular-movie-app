@@ -20,15 +20,24 @@
 
 <div class="container-lg ">
 
-
     <div class="row row-cols-3 row-cols-md-4 row-cols-lg-5 m-0 ">
-        <div *ngFor="let movie of movies$">
-            <a routerLink="/movie/{{movie.id}}">
-                <div class="col p-3 ">
-                    <img class="poster-path scale" src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}"
-                        alt="{{movie.title}}">
-                </div>
-            </a>
+        <div *ngFor="let movie of dataService.movies$">
+            <!-- <a routerLink="/movie/{{movie.id}}"> -->
+            <div class="col p-3 ">
+                <!-- <div class=" addFavorite p-2" style="position: absolute; z-index: 2;"></div> -->
+
+
+                <img *ngIf="!movie.favourite" (click)="toggleFavoriteBtn(movie.id)" #addFavorite
+                    class=" addFavorite p-2" style="position: absolute; z-index: 2;"
+                    src="../../assets/addFavorites_statusClicked=false.png" alt="{{movie.title}}">
+                <img *ngIf="movie.favourite" (click)="toggleFavoriteBtn(movie.id)" #addFavorite class=" addFavorite p-2"
+                    style="position: absolute; z-index: 2;" src="../../assets/addFavorites_statusClicked=true.png"
+                    alt="{{movie.title}}">
+
+                <a routerLink="/movie/{{movie.id}}"><img class="poster-path scale"
+                        src="https://image.tmdb.org/t/p/w200/{{movie.poster_path}}"></a>
+            </div>
+            <!-- </a> -->
         </div>
 
     </div>

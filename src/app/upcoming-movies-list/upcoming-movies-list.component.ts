@@ -9,7 +9,7 @@ import { ActivatedRoute } from "@angular/router";
 @Component({
   selector: "app-upcoming-movies-list",
   templateUrl: "./upcoming-movies-list.component.html",
-  styleUrls: ["./upcoming-movies-list.component.scss"]
+  styleUrls: ["./upcoming-movies-list.component.scss"],
 })
 export class UpcomingMoviesListComponent implements OnInit {
   @ViewChild("addFavorite") addFavorite: ElementRef;
@@ -20,13 +20,18 @@ export class UpcomingMoviesListComponent implements OnInit {
 
   //an observeable which you can subscribe to
   rating = new BehaviorSubject<string>("");
-  constructor(private dataService: DataService, route: ActivatedRoute) {}
+  constructor(public dataService: DataService, route: ActivatedRoute) {}
 
   ngOnInit() {
     this.rating
-      .pipe(switchMap(rating => this.dataService.getUpcomingMovies(rating)))
-      .subscribe(data => {
-        this.movies$ = data["results"];
+      .pipe(switchMap((rating) => this.dataService.getUpcomingMovies(rating)))
+      .subscribe((data) => {
+        this.dataService.movies$ = data["results"];
+        const favoritesArray =
+          JSON.parse(localStorage.getItem("favorites")) || [];
+        this.dataService.movies$.forEach((movie) => {
+          movie.favourite = favoritesArray.includes(movie.id);
+        });
       });
   }
 
@@ -35,14 +40,6 @@ export class UpcomingMoviesListComponent implements OnInit {
   }
 
   toggleFavoriteBtn(id: number) {
-    let clickedMovie = this.movies$.find(movie => movie.id === id);
-    if (clickedMovie.favourite) {
-      // unfavourite
-      this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
-    } else {
-      this.favoritesArray.push(id);
-    }
-    clickedMovie.favourite = !clickedMovie.favourite;
-    localStorage.setItem("favorites", JSON.stringify(this.favoritesArray));
+    this.dataService.toggleFavoriteBtn(id);
   }
 }

@@ -7,7 +7,7 @@
         <div *ngFor="let favoriteMovie of results">
 
             <img class=" addFavorite p-2" style="position: absolute; z-index: 2;"
-                src="../../assets/removeFavoritesBtn.png">
+                src="../../assets/removeFavoritesBtn.png" (click)="toggleFavoriteBtn(favoriteMovie.id)">
             <a routerLink="/movie/{{favoriteMovie.id}}">
                 <div class="col p-3 ">
                     <img class="poster-path scale" src="https://image.tmdb.org/t/p/w200/{{favoriteMovie.poster_path}}"

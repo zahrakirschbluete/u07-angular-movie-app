@@ -4,14 +4,16 @@ import { Movie } from "./movie.model";
 import { Person } from "./person.model";
 import { API_KEY, API_URL } from "./api.config";
 import { Favorites } from "./favourites-list.model";
+import { Subject, BehaviorSubject } from "rxjs";
 
 @Injectable({
-  providedIn: "root"
+  providedIn: "root",
 })
 export class DataService {
   movies$: Movie[];
   statusAdded: boolean = false;
   favoritesArray = [];
+  id = new BehaviorSubject<string>("");
   //endpoints
   discoverMoviesURL = API_URL + "/discover/movie";
   topRatedMoviesURL = API_URL + "/movie/top_rated";
@@ -27,8 +29,8 @@ export class DataService {
       params: {
         api_key: API_KEY,
         certification_country: "US",
-        certification: rating
-      }
+        certification: rating,
+      },
     });
   }
 
@@ -37,8 +39,8 @@ export class DataService {
       params: {
         api_key: API_KEY,
         certification_country: "US",
-        certification: rating
-      }
+        certification: rating,
+      },
     });
   }
 
@@ -47,8 +49,8 @@ export class DataService {
       params: {
         api_key: API_KEY,
         certification_country: "US",
-        certification: rating
-      }
+        certification: rating,
+      },
     });
   }
 
@@ -56,8 +58,8 @@ export class DataService {
     return this._http.get<Movie[]>(`${this.movieDetailURL}/${id}`, {
       params: {
         api_key: API_KEY,
-        append_to_response: "release_date,images,similar,credits"
-      }
+        append_to_response: "release_date,images,similar,credits",
+      },
     });
   }
 
@@ -66,8 +68,8 @@ export class DataService {
       params: {
         api_key: API_KEY,
         language: "en-US",
-        append_to_response: "movie_credits,genre"
-      }
+        append_to_response: "movie_credits,genre",
+      },
     });
   }
 
@@ -77,8 +79,8 @@ export class DataService {
         api_key: API_KEY,
         language: "en-US",
         query: `${query}`,
-        adult: "true"
-      }
+        adult: "true",
+      },
     });
   }
 
@@ -87,16 +89,18 @@ export class DataService {
       params: {
         api_key: API_KEY,
         language: "en-US",
-        query: `${query}`
-      }
+        query: `${query}`,
+      },
     });
   }
 
   toggleFavoriteBtn(id: number) {
-    let clickedMovie = this.movies$.find(movie => movie.id === id);
+    this.favoritesArray = JSON.parse(localStorage.getItem("favorites")) || [];
+    let clickedMovie = this.movies$.find((movie) => movie.id === id);
+    console.log(clickedMovie);
     if (clickedMovie.favourite) {
       // unfavourite
-      this.favoritesArray = this.favoritesArray.filter(fave => fave !== id);
+      this.favoritesArray = this.favoritesArray.filter((fave) => fave !== id);
     } else {
       this.favoritesArray.push(id);
     }

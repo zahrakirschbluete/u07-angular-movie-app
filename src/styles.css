@@ -1,0 +1,97 @@
+/* You can add global styles to this file, and also import other style files */
+@import url("https://fonts.googleapis.com/css?family=Poppins&display=swap");
+@import url("https://fonts.googleapis.com/css?family=Montserrat&display=swap");
+.btn-danger {
+  background-color: #e50914;
+  border-color: #e50914;
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.btn-danger:hover {
+  background-color: #e50914;
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+.btn-outline-danger {
+  color: #e50914;
+  border-color: #e50914;
+}
+
+.btn-outline-danger:hover {
+  color: white;
+  background-color: #e50914;
+  border-color: #e50914;
+}
+
+body {
+  margin: 0px;
+  padding: 0px;
+  -webkit-box-sizing: border-box;
+          box-sizing: border-box;
+  background: #0b0b0b;
+  min-height: 100vh;
+  display: -webkit-box;
+  display: -ms-flexbox;
+  display: flex;
+  -webkit-box-orient: vertical;
+  -webkit-box-direction: normal;
+      -ms-flex-direction: column;
+          flex-direction: column;
+}
+
+.menu {
+  background: #111111ea;
+  -webkit-box-shadow: -2px -7px 47px 9px rgba(229, 9, 20, 0.3);
+          box-shadow: -2px -7px 47px 9px rgba(229, 9, 20, 0.3);
+}
+
+.scale {
+  -webkit-transition: all 0.2s ease-in-out;
+  transition: all 0.2s ease-in-out;
+}
+
+.scale:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+h1,
+h2,
+h3 {
+  font-family: "Poppins", sans-serif;
+}
+
+p {
+  font-family: "Montserrat", sans-serif;
+}
+
+.m-w-100 {
+  max-width: 100%;
+}
+
+.w-sm-75px {
+  max-width: 75px;
+  height: auto;
+}
+
+.addFavorite:hover {
+  -webkit-transform: scale(1.1);
+          transform: scale(1.1);
+}
+
+@media (max-width: 800px) {
+  .poster-path {
+    max-width: 150px;
+    height: auto;
+  }
+}
+
+@media (max-width: 500px) {
+  .poster-path {
+    max-width: 75px;
+    height: auto;
+  }
+}
+/*# sourceMappingURL=styles.css.map */

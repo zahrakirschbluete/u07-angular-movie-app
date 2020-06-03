@@ -21,17 +21,17 @@ const routes: Routes = [
   { path: `favorites`, component: FavoritesListComponent },
   { path: `search/:query`, component: SearchComponent },
   { path: `home`, component: HomeComponent },
-  { path: "", redirectTo: "movie/upcoming", pathMatch: "full" },
-  { path: "**", component: PageNotFoundComponent }
+  { path: "", redirectTo: "movie", pathMatch: "full" },
+  { path: "**", component: PageNotFoundComponent },
 ];
 
 @NgModule({
   imports: [RouterModule.forRoot(routes)],
-  exports: [RouterModule]
+  exports: [RouterModule],
 })
 export class AppRoutingModule {}
 
 export const routingComponents = [
   PopularMoviesListComponent,
-  MovieDetailComponent
+  MovieDetailComponent,
 ];

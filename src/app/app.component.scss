@@ -1,0 +1,20 @@
+.link-unstyled {
+  & {
+    color: #606061;
+    text-decoration: none;
+  }
+
+  &:hover {
+    color: #606061;
+    text-decoration: none;
+    transform: scale(1.02);
+    text-shadow: 0px 0px 18px #000, 0 0 20px #fff, 0 0 30px #e50914,
+      0 0 40px #e50914, 0 0 30px #e50914, 0 0 60px #e50914, 0 0 70px #e50914;
+  }
+
+  //   &:focus,
+  //   &:active {
+  //     color: white;
+  //     text-decoration: none;
+  //   }
+}
