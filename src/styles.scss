@@ -5,6 +5,10 @@
 
 $primary-color: #e50914;
 
+p {
+  white-space: pre-line;
+}
+
 .btn-danger {
   background-color: $primary-color;
   border-color: $primary-color;
